@@ -94,6 +94,8 @@ class Player( xbmc.Player ):
                                     pDialog = xbmcgui.DialogProgress()
                                     nextUpPage = NextUpInfo("script-nextup-notification-NextUpInfo.xml", addonSettings.getAddonInfo('path'), "default", "720p")
                                     nextUpPage.setItem(episode)
+                                    playMode = addonSettings.getSetting("autoPlayMode") # re-retrieve playmode
+                                    nextUpPage.setPlaymode(playMode)
                                     playTime = xbmc.Player().getTime()
                                     totalTime = xbmc.Player().getTotalTime()
                                     nextUpPage.show()

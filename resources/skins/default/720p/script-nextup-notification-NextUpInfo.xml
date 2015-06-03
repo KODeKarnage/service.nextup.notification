@@ -31,7 +31,7 @@
 					<right>0</right>
 					<bottom>40</bottom>
 					<width>200</width>
-					<onup>3013</onup>
+					<onup>3014</onup>
 					<ondown>3013</ondown>
 					<font>font14</font>
 					<label>$ADDON[service.nextup.notification 30006]</label>
@@ -47,9 +47,29 @@
 					<bottom>-30</bottom>
 					<width>200</width>
 					<onup>3012</onup>
-					<ondown>3012</ondown>
+					<ondown>3014</ondown>
 					<font>font14</font>
 					<label>222</label>
+					<focusedcolor>FFededed</focusedcolor>
+					<disabledcolor>B3dddddd</disabledcolor>
+					<selectedcolor>FFff4081</selectedcolor>
+					<height>68</height>
+					<textcolor>ff333333</textcolor>
+				</control>
+			</control>
+
+			<control type="group">
+				<animation effect="slide" start="0" end="0,-190" time="150" condition="Control.HasFocus(3014)">Conditional</animation>
+				<!-- buttons -->
+				<control type="button" id="3014">
+					<description>Toggle Default</description>
+					<right>0</right>
+					<bottom>40</bottom>
+					<width>200</width>
+					<onup>3014</onup>
+					<ondown>3012</ondown>
+					<font>font14</font>
+					<label>TOGGLE</label>
 					<focusedcolor>FFededed</focusedcolor>
 					<disabledcolor>B3dddddd</disabledcolor>
 					<selectedcolor>FFff4081</selectedcolor>

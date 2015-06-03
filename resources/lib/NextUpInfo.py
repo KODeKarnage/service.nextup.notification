@@ -19,6 +19,8 @@ class NextUpInfo(xbmcgui.WindowXMLDialog):
 
     def onInit(self):
         self.action_exitkeys_id = [10, 13]
+
+        self.playmode = '0'
     
         image = self.item['art'].get('tvshow.poster','')
         thumb = self.item['art'].get('thumb','')
@@ -60,6 +62,9 @@ class NextUpInfo(xbmcgui.WindowXMLDialog):
     
     def setCancel(self, cancel):
         self.cancel = cancel
+
+    def setPlaymode(self, mode):
+        self.playmode = mode
         
     def isCancel(self):
         return self.cancel
@@ -77,7 +82,15 @@ class NextUpInfo(xbmcgui.WindowXMLDialog):
         pass
 
     def closeDialog(self):
-        self.close()        
+        self.close()   
+
+    def toggleplaymode(self):
+        if self.getControl(3014).getLabel() == "Default: Play"
+            self.getControl(3014).setLabel("Default: Dont Play")
+            xbmcaddon.Addon(id='service.nextup.notification').setSetting("autoPlayMode", '1')
+        else:
+            self.getControl(3014).setLabel("Default: Play")
+            xbmcaddon.Addon(id='service.nextup.notification').setSetting("autoPlayMode", '0')
         
     def onClick(self, controlID):
         
@@ -93,7 +106,10 @@ class NextUpInfo(xbmcgui.WindowXMLDialog):
             self.setCancel(True)
             self.close()
 
-        pass
+        elif(controlID) == 3014):
+            #toggle default
+            self.toggleplaymode()
+
     
     def onAction(self, action):
         
